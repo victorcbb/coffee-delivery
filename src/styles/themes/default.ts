@@ -2,6 +2,7 @@ export const defaultTheme = {
   background: "#FAFAFA",
 
   purple_dark: "#4B2995",
+  purple: "#8047F8",
   purple_light: "#EBE5F9",
 
   yellow_dark: "#C47F17",
