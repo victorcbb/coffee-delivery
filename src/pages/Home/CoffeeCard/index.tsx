@@ -1,12 +1,16 @@
 import { BuyContainer, CoffeeContainer } from "./styles"
 import coffeTraditional from "../../../assets/traditional.png"
-import { Minus, Plus, ShoppingCart } from "phosphor-react"
+import { ShoppingCart } from "phosphor-react"
+import { Amount } from "../../../Components/Amount"
 
 export function CoffeeCard() {
   return (
     <CoffeeContainer>
       <img src={coffeTraditional} alt="Ilustração de café vendido" />
-            <span>Tradicional</span>
+            <div className="tags">
+              <span>Tradicional</span>
+              {/* <span>Gelado</span> */}
+            </div>
             <strong>Expresso tradicional</strong>
             <p>O tradicional café feito com água quente e grãos moídos</p>
             <BuyContainer>
@@ -15,15 +19,7 @@ export function CoffeeCard() {
                 <strong>9,90</strong>
               </div>
               <div className="action">
-                <div className="amount">
-                  <button>
-                    <Minus size={14} weight="bold" />
-                  </button>
-                  <span>1</span>
-                  <button>
-                    <Plus size={14} weight="bold" />
-                  </button>
-                </div>
+                <Amount />
                 <button>
                   <ShoppingCart size={22} weight="fill" />
                 </button>

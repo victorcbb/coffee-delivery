@@ -39,6 +39,8 @@ export const InfoContainer = styled.div`
     background: ${({ theme }) => theme.yellow_light};
     border-radius: 6px;
 
+    position: relative;
+
     display: flex;
     align-items: center;
     
@@ -46,6 +48,27 @@ export const InfoContainer = styled.div`
 
     svg {
       color: ${({ theme }) => theme.yellow_dark};
+    }
+
+    .amountOfOrders {
+      width: 1.25rem;
+      height: 1.25rem;
+
+      position: absolute;
+      right: -.5rem;
+      top: -.5rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: .75rem;
+      font-weight: bold;
+      line-height: 1;
+      color: white;
+
+      background: ${({ theme }) => theme.yellow_dark};
+      border-radius: 9999px;
     }
   }
 

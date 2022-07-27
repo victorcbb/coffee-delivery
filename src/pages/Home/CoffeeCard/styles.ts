@@ -15,18 +15,25 @@ export const CoffeeContainer = styled.div`
       margin: -1.25rem 0 .75rem;
     }
 
-    > span {
-      background: ${({ theme }) => theme.yellow_light};
-      border-radius: 9999px;
+		.tags {
+			display: flex;
+			justify-content: center;
+			gap: .25rem;
 
-      padding: .25rem .5rem;
-      margin-bottom: 1rem;
+			> span {
+				background: ${({ theme }) => theme.yellow_light};
+				border-radius: 9999px;
+	
+				padding: .25rem .5rem;
+				margin-bottom: 1rem;
+	
+				color: ${({ theme }) => theme.yellow_dark};
+				font-size: .625rem;
+				font-weight: bold;
+				line-height: 1.3;
+			}
+		}
 
-      color: ${({ theme }) => theme.yellow_dark};
-      font-size: .625rem;
-      font-weight: bold;
-      line-height: 1.3;
-    }
 
     > strong {
       font-family: 'Baloo 2', cursive;
@@ -71,34 +78,15 @@ export const BuyContainer = styled.div`
 	}
 
 	.action {
+		height: 2.375rem;
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		justify-content: center;
 		gap: .5rem;
 
-		.amount {
-			height: 2.375rem;
-
-			background: ${({ theme }) => theme["gray-200"]};
-			border-radius: 6px;
-			padding: 0 .5rem;
-
-			display: flex;
-			align-items: center;
-			justify-content: center;
-      gap: .25rem;
-
-			button {
-				color: ${({ theme }) => theme.purple};
-				border: none;
-				background: transparent;
-
-				cursor: pointer;
-			}
-		}
-
 		> button {
 			padding: .5rem;
+
 			background: ${({ theme }) => theme.purple_dark};
 			border: none;
 			border-radius: 6px;
@@ -109,7 +97,12 @@ export const BuyContainer = styled.div`
 			align-items: center;
       justify-content: center;
 
-				cursor: pointer;
+			cursor: pointer;
+			transition: all 0.2s;
+		}
+
+		> button:hover {
+			background: ${({ theme }) => theme.purple};
 		}
 	}
 ` 

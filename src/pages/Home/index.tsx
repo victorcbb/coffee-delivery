@@ -1,8 +1,17 @@
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react"
 
 import { CoffeesContainer, HomeContainer, IntroContainer, ItemsContainer } from "./styles"
-import coffeImg from "../../assets/coffee.png"
 import { CoffeeCard } from "./CoffeeCard"
+import coffeImg from "../../assets/coffee.png"
+
+const coffees = [
+  {
+    name: "Expresso Tradicional",
+    img: "../../../assets/tradicional.png",
+    description: "O tradicional café feito com água quente e grãos moídos",
+    price: "4,90"
+  },
+]
 
 export function Home() {
   return (
