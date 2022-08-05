@@ -5,9 +5,10 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
   }
 
-  :focus {
+  input:focus {
     outline:1px solid ${({ theme }) => theme["gray-400"]};
   }
 
@@ -23,19 +24,14 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  input::-webkit-input-placeholder {
-   color: ${({ theme }) => theme["gray-400"]};
+  ::-webkit-scrollbar {
+    width: 0.4rem;
   }
-
-  input:-moz-placeholder { /* Firefox 18- */
-    color: ${({ theme }) => theme["gray-400"]};  
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme["gray-200"]}
   }
-
-  input::-moz-placeholder {  /* Firefox 19+ */
-    color: ${({ theme }) => theme["gray-400"]};  
-  }
-
-  input:-ms-input-placeholder {  
-    color: ${({ theme }) => theme["gray-400"]};  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background: ${({ theme }) => theme.purple}
   }
 `

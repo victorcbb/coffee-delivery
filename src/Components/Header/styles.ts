@@ -2,12 +2,23 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   width: 100%;
+  height: 6.5rem;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  padding: 2rem 10rem;
+  padding: 0 10rem;
+
+  > div {
+    width: 100%;
+    max-width: 70rem;
+
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `
 
 export const InfoContainer = styled.div`
@@ -31,10 +42,11 @@ export const InfoContainer = styled.div`
     svg {
       color: ${({ theme }) => theme.purple};
     }
-
   }
 
   .cart {
+    width: fit-content;
+    height: fit-content;
     padding: .5rem;
     background: ${({ theme }) => theme.yellow_light};
     border-radius: 6px;

@@ -27,12 +27,53 @@ export const FormOrderContainer = styled.section`
 
     padding: 0 2.5rem 1.5rem;
 
+    display: grid;
+    grid-template-columns: 12.5rem 17.5rem 3.5rem;
+    column-gap: 0.75rem;
+    row-gap: 1rem;
+    grid-auto-flow: dense;
+
+    .cep {
+      grid-column: span 3;
+      max-width: 12.5rem;
+    }
+
+    .street {
+      grid-column: span 3;
+    }
+
+    .complement {
+      grid-column: span 2;
+    }
+
+    .inputWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      position: relative;
+
+      span {
+        color: #ff2222;
+        opacity: 0.7;
+        font-size: .625rem;
+      }
+    }
+
+    span.opitional {
+      position: absolute;
+      right: .75rem;
+      top: .75rem;
+
+      font-size: .875rem;
+      color: ${({ theme }) => theme["gray-400"]};
+    }
+
     input[type="text"] {
+      width: 100%;
       border: 1px solid ${({ theme }) => theme["gray-300"]};
       border-radius: 4px;
 
       padding: .75rem;
-      margin-bottom: 1rem;
 
       font-size: .875rem;
       color: ${({ theme }) => theme["gray-700"]};
@@ -40,28 +81,8 @@ export const FormOrderContainer = styled.section`
       box-shadow: 0 0 0px 1000px ${({ theme }) => theme["gray-200"]} inset;
       transition: background-color 5000s ease-in-out 0s;
 
-      
-      &:nth-child(1) {
-        width: 12.5rem;
-      }
-
-      &:nth-child(2) {
-        width: 100%;
-      }
-      
-      &:nth-child(3) {
-        width: 3.75rem;
-      }
-    }
-    
-    fieldset {
-      border: none;
-
-      display: flex;
-      gap: .75rem;
-
-      input[type="text"]:nth-child(2) {
-          max-width: 100%;
+      &::placeholder {
+        color: ${({ theme }) => theme["gray-400"]};
       }
     }
   }
@@ -108,39 +129,62 @@ export const Payment = styled.div`
     justify-content: space-between;
     gap: .75rem;
 
-    button {
+    > div {
       flex: 1;
+     
+      label {
+        display: flex;
+        align-items: center;
 
-      background: ${({ theme }) => theme["gray-300"]};
-      border-radius: 6px;
-      border: none;
+        flex: 1;
 
-      display: flex;
-      align-items: center;
-      gap: .75rem;
+        background: ${({ theme }) => theme["gray-300"]};
+        border-radius: 6px;
+        border: none;
 
-      padding: 1rem;
+        display: flex;
+        align-items: center;
+
+        padding: 1rem;
+
+        font-size: .75rem;
+        color: ${({ theme }) => theme['gray-700']};
+        line-height: 1.6;
+
+        cursor: pointer;
+        transition: all 0.2s;
+
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:not(.selected):hover {
+          filter: brightness(0.9);
+        }
+      }
       
-      font-size: .75rem;
-      color: ${({ theme }) => theme['gray-700']};
-      line-height: 1.6;
-
-      cursor: pointer;
-      transition: all 0.2s;
-
-      &:not(.selected):hover {
-        filter: brightness(0.9);
-      }
-
-      &.selected {
-        background-color: ${({ theme }) => theme.purple_light};
-        border: 1px solid ${({ theme }) => theme.purple};
-      }
-
       svg {
         color: ${({ theme }) => theme.purple};
+        margin-right: .75rem;
+      }
+      
+      input[type="radio"] {
+        visibility: hidden;
+        appearance: none;
+
+        &:checked + label {
+          background-color: ${({ theme }) => theme.purple_light};
+          border: 1px solid ${({ theme }) => theme.purple};
+        }
       }
     }
+  }
+
+  > span {
+    display: block;
+    margin: -1.5rem 2.5rem 0;
+    color: #ff2222;
+    opacity: 0.7;
+    font-size: .875rem;
   }
 `
 

@@ -1,14 +1,23 @@
-import { Minus, Plus } from "phosphor-react";
-import { AmountContainer } from "./styles";
+import { Minus, Plus } from "phosphor-react"
+import { useCoffees } from "../../hook/useCoffees"
+import { AmountContainer } from "./styles"
 
-export function Amount() {
+interface AmountProps {
+  onIncrease: () => void
+  onDecrease: () => void
+  quantity: number
+}
+
+export function Amount({ onIncrease, onDecrease, quantity }:AmountProps) {
+
+
   return (
     <AmountContainer>
-      <button>
+      <button type="button" disabled={quantity === 1} onClick={onDecrease}>
         <Minus size={14} weight="bold" />
       </button>
-      <span>1</span>
-      <button>
+      <span>{quantity}</span>
+      <button type="button" onClick={onIncrease}>
         <Plus size={14} weight="bold" />
       </button>
     </AmountContainer>

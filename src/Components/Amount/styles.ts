@@ -11,13 +11,18 @@ export const AmountContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: .25rem;
-
+  
   button {
     color: ${({ theme }) => theme.purple};
     border: none;
     background: transparent;
-
+    
     cursor: pointer;
+  
+    &:disabled {
+      cursor: auto;
+      opacity: 0.7;
+    }
   }
 
   span {

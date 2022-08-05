@@ -1,8 +1,27 @@
 import { BoxInfoContainer, DetailsContainer, SuccessContainer } from "./styles"
 import deliveryImg from "../../assets/delivery.png"
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react"
+import { useLocation, useNavigate } from "react-router-dom"
+import { OrderData, paymentMethods } from "../Checkout"
+import { useEffect } from "react"
+
+interface LocationType {
+  state: OrderData
+}
 
 export function Success() {
+  const { state } = useLocation() as unknown as LocationType
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if(!state) {
+      navigate("/")
+    }
+  }, [])
+
+  if(!state) return <></>
+
   return (
     <SuccessContainer>
       <h1>Uhu! Pedido confirmado</h1>
@@ -16,9 +35,9 @@ export function Success() {
             </div>
             <div>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em <strong>{state.street}, {state.number}</strong>
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <span>{state.district} - {state.city}, {state.state}</span>
             </div>
           </DetailsContainer>
 
@@ -28,9 +47,9 @@ export function Success() {
             </div>
             <div>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Previsão de entrega
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <strong>20 min - 30 min</strong>
             </div>
           </DetailsContainer>
 
@@ -40,9 +59,9 @@ export function Success() {
             </div>
             <div>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Pagamento na entrega
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <strong>{paymentMethods[state.paymentMethods].label}</strong>
             </div>
           </DetailsContainer>
         </BoxInfoContainer>

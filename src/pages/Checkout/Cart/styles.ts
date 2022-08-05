@@ -7,6 +7,7 @@ export const CartContainer = styled.section`
   padding: 2.5rem;
 
   background: ${({ theme }) => theme["gray-100"]};
+  border-radius: 6px 44px;
 
   ul {
     list-style-type: none;
@@ -16,7 +17,7 @@ export const CartContainer = styled.section`
       justify-content: space-between;
       align-items: flex-start;
 
-      padding: 1.5rem 0;
+      padding-bottom: 1.5rem;
 
       border-bottom: 1px solid ${({ theme }) => theme["gray-300"]};
 
@@ -24,6 +25,10 @@ export const CartContainer = styled.section`
         margin: .5rem .25rem;
         line-height: 130%;
         color: ${({ theme }) => theme["gray-700"]};
+      }
+
+      & + li {
+        padding-top: 1.5rem;
       }
     }
   }
@@ -44,8 +49,13 @@ export const CartContainer = styled.section`
     transition: all .2s;
     cursor: pointer;
     
-    &:hover {
+    &:not(:disabled):hover {
       background: ${({ theme }) => theme.yellow_dark};
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
     }
   }
 `
@@ -67,6 +77,8 @@ export const ItemContainer = styled.div`
     display: flex;
     align-items: stretch;
     gap: .5rem;
+
+    margin-top: .5rem;
 
     > button {
       padding: 0 .5rem;
