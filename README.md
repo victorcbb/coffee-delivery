@@ -5,7 +5,7 @@ Frontend developed in react + vite to study the development of a web application
 ### Current Stack :technologist:
 - `TypeScript`
 - `React`
-- `useState`
+- `useContext`
 - `useContext`
 - `HooksForm`
 - `Styled-component`
