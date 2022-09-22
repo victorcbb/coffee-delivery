@@ -6,6 +6,5 @@ Frontend developed in react + vite to study the development of a web application
 - `TypeScript`
 - `React`
 - `useContext`
-- `useContext`
 - `HooksForm`
 - `Styled-component`
